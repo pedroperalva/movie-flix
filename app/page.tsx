@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import { api } from "./utils/api";
-import { Movie } from "./types";
+import { Movies } from "./types";
 import { MainCarousel } from "./components/Carousel";
 
 export default function Home() {
-  const [movies, setMovies] = useState<Movie[]>();
+  const [movies, setMovies] = useState<Movies[]>();
   useEffect(() => {
     async function getPages() {
       const { data } = await api.get(
@@ -17,7 +17,7 @@ export default function Home() {
     getPages();
   }, []);
   return (
-    <main className="min-h-screen p-24">
+    <main className="p-24">
       {movies && <MainCarousel movies={movies}></MainCarousel>}
     </main>
   );

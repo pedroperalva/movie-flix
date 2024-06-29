@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         <Providers>
-          <main className="bg-red-600 bg-no-repeat bg-fixed bg-cover w-full min-h-screen">
+          <main className="bg-main-bg bg-no-repeat bg-fixed bg-cover w-full min-h-screen">
             <DesktopNavbar />
             {children}
           </main>

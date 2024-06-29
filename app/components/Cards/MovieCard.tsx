@@ -1,6 +1,6 @@
 "use client";
 
-import { Movie } from "@/app/types";
+import { Movies } from "@/app/types";
 import {
   Card,
   CardBody,
@@ -9,7 +9,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
-export function MovieCard({ movie }: { movie: Movie }) {
+export function MovieCard({ movie }: { movie: Movies }) {
   const router = useRouter();
   return (
     <Card
