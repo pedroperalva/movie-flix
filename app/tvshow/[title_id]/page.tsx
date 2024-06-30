@@ -1,20 +1,20 @@
-import { Movie } from "@/app/types";
+import { TVShow } from "@/app/types";
 import {
   CircularProgress,
   CircularProgressLabel,
   Image,
 } from "@chakra-ui/react";
-import { Trailer } from "./components/Trailer";
-import { CastCarousel } from "./components/CastCarousel";
+import { Trailer } from "@/app/components/Modals";
+import { CastCarousel } from "@/app/components/Carousel";
 
 export default async function Title({
   params,
 }: {
   params: { title_id: string };
 }) {
-  const data: Movie = await getTitleById(params.title_id);
+  const data: TVShow = await getTitleById(params.title_id);
   const credits: any = await getCredits(params.title_id);
-  console.log(credits);
+  console.log(data);
   return (
     <main className="w-full relative pb-20">
       <div
@@ -30,10 +30,10 @@ export default async function Title({
           className="rounded-xl h-[450px] w-[300px] border-solid border-2"
         />
         <div className="h-[450px] w-full text-white font-semibold px-10">
-          <h1 className="text-3xl font-bold">{data.title}</h1>
+          <h1 className="text-3xl font-bold">{data.name}</h1>
           <p className="italic">{data.tagline}</p>
           <div className="flex my-4">
-            <p className="mr-4">{data.release_date}</p>
+            <p className="mr-4">{data.first_air_date}</p>
             {data.genres.map((genre) => {
               return (
                 <li key={genre.id} className="mr-4">
@@ -48,7 +48,21 @@ export default async function Title({
             </p>
             <Trailer id={params.title_id} />
           </div>
-          <p className="my-4">{data.runtime} min</p>
+          <p className="my-4">
+            Episódios: {data.number_of_episodes} | Temporadas:{" "}
+            {data.number_of_seasons}
+          </p>
+          <p className="mb-4">
+            {" "}
+            {data.status === "Ended"
+              ? "Série Finalizada"
+              : data.next_episode_to_air
+              ? "Próximo Episódio: " +
+                data.next_episode_to_air.name +
+                " - " +
+                data.next_episode_to_air.air_date
+              : "Próximo Episódio: -"}
+          </p>
           <p className="">Sinopse:</p>
           <p className="my-4">{data.overview}</p>
           <div className="bg-black rounded-[50%] w-[65px]">
@@ -74,9 +88,9 @@ export default async function Title({
             </CircularProgress>
           </div>
           <div className="flex w-full items-center gap-3 mt-4">
-            {data.production_companies.map((company: any) => {
+            {data.production_companies.map((company: any, index: number) => {
               return company.logo_path ? (
-                <div>
+                <div key={index}>
                   <Image
                     src={`https://image.tmdb.org/t/p/original/${company.logo_path}`}
                     alt="poster"
@@ -100,7 +114,7 @@ export default async function Title({
 
 async function getTitleById(id: string) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/movie/${id}?language=pt-BR&region=BR`,
+    `${process.env.NEXT_PUBLIC_API_URL}/tv/${id}?language=pt-BR&region=BR`,
     {
       next: { revalidate: 300 },
       headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}` },
@@ -111,7 +125,7 @@ async function getTitleById(id: string) {
 
 async function getCredits(id: string) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/movie/${id}/credits?language=pt-BR&region=BR`,
+    `${process.env.NEXT_PUBLIC_API_URL}/tv/${id}/credits?language=pt-BR&region=BR`,
     {
       next: { revalidate: 300 },
       headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}` },

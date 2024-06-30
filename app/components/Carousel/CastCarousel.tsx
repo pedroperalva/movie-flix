@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { ProfileCard } from "./ProfileCard";
+import { ProfileCard } from "../Cards/ProfileCard";
 import "swiper/css/scrollbar";
 import { Scrollbar } from "swiper/modules";
 import { useWindowResize } from "@/app/hooks/windowResize";
