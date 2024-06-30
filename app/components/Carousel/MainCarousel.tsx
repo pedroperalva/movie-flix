@@ -1,9 +1,6 @@
 import { Movies } from "@/app/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { MovieCard } from "../Cards";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
 export function MainCarousel({ movies }: { movies: Movies[] }) {

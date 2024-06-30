@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { DesktopNavbar } from "./components/Navbar";
-const inter = Inter({ subsets: ["latin"] });
+import "swiper/css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
