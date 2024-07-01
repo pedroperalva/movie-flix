@@ -18,7 +18,7 @@ export default async function Title({
   return (
     <main className="w-full relative pb-20">
       <div
-        className="h-[600px] w-full bg-center absolute top-0 opacity-50"
+        className="h-full w-full bg-center absolute top-0 opacity-50"
         style={{
           backgroundImage: `url("https://image.tmdb.org/t/p/original/${data.backdrop_path}")`,
         }}
@@ -90,7 +90,7 @@ export default async function Title({
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-10 w-full mt-10">
+      <div className="flex flex-col gap-10 w-full mt-10 z-20 relative">
         <h1 className="text-2xl text-white font-bold px-5">Elenco Principal</h1>
         <CastCarousel cast={credits.cast} />
       </div>
