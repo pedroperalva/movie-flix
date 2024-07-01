@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "main-bg": "url('/background.jpg')",
+        "black-bg": "url('/blackbg.jpg')",
       },
       fontFamily: {
         "main-name": ['"Russo One"', "sans-serif"],

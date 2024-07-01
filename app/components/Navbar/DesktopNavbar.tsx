@@ -5,7 +5,7 @@ export function DesktopNavbar() {
   return (
     <nav className="h-14 w-full bg-black flex items-center px-3">
       <Link href={"/"}>
-        <MainLogo />
+        <MainLogo textSize="text-xl" />
       </Link>
     </nav>
   );
