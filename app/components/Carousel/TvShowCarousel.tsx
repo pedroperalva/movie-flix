@@ -3,20 +3,20 @@
 import { TVShows } from "@/app/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { MovieCard } from "../Cards";
-import { Autoplay } from "swiper/modules";
+import { Scrollbar } from "swiper/modules";
+import "swiper/css/scrollbar";
 
 export function TvShowCarousel({ tvShows }: { tvShows: TVShows[] }) {
   return (
     <Swiper
+      scrollbar
       slidesPerView={5}
-      loop
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: false,
-      }}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
-      modules={[Autoplay]}
+      modules={[Scrollbar]}
+      style={{
+        paddingBottom: 15,
+      }}
     >
       {tvShows &&
         tvShows.map((item: TVShows, index: number) => {

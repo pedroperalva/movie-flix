@@ -24,7 +24,7 @@ export function MovieCard({
   const router = useRouter();
   return (
     <Card
-      className="w-40 h-[300px] cursor-pointer"
+      className="w-40 h-[325px] cursor-pointer"
       rounded={"xl"}
       onClick={() =>
         type === "movie"
