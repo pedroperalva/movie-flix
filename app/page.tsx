@@ -1,5 +1,5 @@
 import { MovieCarousel, TvShowCarousel } from "./components/Carousel";
-import { SearchInput } from "./components/Inputs";
+import { SearchInputTab } from "./components/Inputs";
 import { MainLogo } from "./components/Logos";
 
 export default async function Home() {
@@ -15,7 +15,7 @@ export default async function Home() {
             Milhões de Filmes, Séries e Pessoas para Descobrir.
           </h2>
         </div>
-        <SearchInput />
+        <SearchInputTab />
       </section>
       <section className="flex flex-col w-[860px] justify-center gap-[50px]">
         <h3 className="text-2xl font-bold text-white">Filmes</h3>
