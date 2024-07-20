@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 
 export function SearchInputTab() {
   const [movie, setMovie] = useState<string>("");
-  const [series, setSeries] = useState<string>("");
+  const [tvshow, setTvshow] = useState<string>("");
   const [people, setPeople] = useState<string>("");
   const router = useRouter();
 
@@ -23,8 +23,8 @@ export function SearchInputTab() {
     if (type === "movie") {
       router.push(`/search?query=${movie}&type=${type}`);
     }
-    if (type === "series") {
-      router.push(`/search?query=${series}&type=${type}`);
+    if (type === "tvshow") {
+      router.push(`/search?query=${tvshow}&type=${type}`);
     }
     if (type === "people") {
       router.push(`/search?query=${people}&type=${type}`);
@@ -50,10 +50,10 @@ export function SearchInputTab() {
         </TabPanel>
         <TabPanel>
           <SearchInput
-            value={series}
-            setValue={setSeries}
+            value={tvshow}
+            setValue={setTvshow}
             placeholder={"Busque por uma série..."}
-            handleSearch={() => handleSearch("series")}
+            handleSearch={() => handleSearch("tv")}
           />
         </TabPanel>
         <TabPanel>

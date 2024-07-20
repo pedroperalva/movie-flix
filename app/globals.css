@@ -11,3 +11,11 @@
   display: flex;
   gap: 20px;
 }
+
+.max-length-title {
+  overflow: hidden;
+  max-width: 200px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
