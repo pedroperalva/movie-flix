@@ -44,7 +44,7 @@ export function MovieCard({
           alt="poster"
           className="w-40 rounded-t-xl h-[240px]"
         />
-        <h2 className="font-bold text-sm !text-white mt-4 px-2 text-center">
+        <h2 className="font-bold text-sm !text-white mt-4 px-2 text-center max-length-title">
           {title}
         </h2>
         <div className="absolute top-[220px] right-2 bg-black rounded-[50%]">

@@ -14,7 +14,7 @@ export default async function Title({
 }) {
   const data: TVShow = await getTitleById(params.title_id);
   const credits: any = await getCredits(params.title_id);
-  console.log(data);
+
   return (
     <main className="w-full relative pb-20">
       <div
