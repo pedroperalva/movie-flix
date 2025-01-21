@@ -1,16 +1,32 @@
-import { Input, Button, FormControl, FormLabel } from "@chakra-ui/react";
+import useLogin from "@/app/hooks/loginHook";
+import { Input, Button, FormLabel, Spinner } from "@chakra-ui/react";
 import { Dispatch, SetStateAction } from "react";
 
 export function LoginForm({
   formType,
   setFormType,
+  onClose,
 }: {
   formType: string;
   setFormType: Dispatch<SetStateAction<"login" | "register" | "forgotPass">>;
+  onClose: () => void;
 }) {
+  const { login, loading, error } = useLogin();
+
+  const submitLogin = (e: any) => {
+    e.preventDefault();
+    login(e.target[0].value, e.target[1].value)
+      .then(() => {
+        console.log("oi");
+        onClose();
+      })
+      .catch((error: any) => console.log(error));
+  };
+
   return (
-    <FormControl
+    <form
       className={`${formType === "login" ? "fadeInForm" : "hidden"}`}
+      onSubmit={(e: any) => submitLogin(e)}
     >
       <FormLabel>Email</FormLabel>
       <Input type="email" />
@@ -22,8 +38,13 @@ export function LoginForm({
       >
         Esqueceu a senha?
       </p>
-      <Button className="w-full mt-6" bgColor={"red.600"} textColor={"white"}>
-        Fazer Login
+      <Button
+        className="w-full mt-6"
+        bgColor={"red.600"}
+        textColor={"white"}
+        type="submit"
+      >
+        {loading ? <Spinner /> : "Fazer Login"}
       </Button>
       <p className="mt-10 text-center">
         Não tem uma conta?{" "}
@@ -34,6 +55,6 @@ export function LoginForm({
           Registrar
         </a>
       </p>
-    </FormControl>
+    </form>
   );
 }

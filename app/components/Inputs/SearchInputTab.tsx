@@ -39,7 +39,7 @@ export function SearchInputTab() {
         <Tab>Pessoas</Tab>
       </TabList>
       <TabIndicator mt="-1.5px" height="2px" bg="blue.500" borderRadius="1px" />
-      <TabPanels>
+      <TabPanels className="w-full xl:!w-[840px]">
         <TabPanel>
           <SearchInput
             value={movie}

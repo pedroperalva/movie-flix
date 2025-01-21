@@ -1,17 +1,10 @@
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Input,
-  Button,
-  FormControl,
-  FormLabel,
-  Link,
-  Show,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { LoginForm } from "../Forms";
@@ -34,13 +27,17 @@ export function DrawerMenu({
         <DrawerCloseButton />
         <DrawerHeader>
           {formType === "login"
-            ? "Login"
+            ? "Entrar"
             : formType === "register"
             ? "Registrar"
             : "Recuperar Senha"}
         </DrawerHeader>
         <DrawerBody>
-          <LoginForm formType={formType} setFormType={setFormType} />
+          <LoginForm
+            formType={formType}
+            setFormType={setFormType}
+            onClose={onClose}
+          />
           <RegisterForm formType={formType} setFormType={setFormType} />
         </DrawerBody>
       </DrawerContent>

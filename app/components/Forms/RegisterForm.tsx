@@ -1,4 +1,4 @@
-import { Input, Button, FormControl, FormLabel } from "@chakra-ui/react";
+import { Input, Button, FormLabel } from "@chakra-ui/react";
 import { Dispatch, SetStateAction } from "react";
 
 export function RegisterForm({
@@ -9,9 +9,7 @@ export function RegisterForm({
   setFormType: Dispatch<SetStateAction<"login" | "register" | "forgotPass">>;
 }) {
   return (
-    <FormControl
-      className={`${formType === "register" ? "fadeInForm" : "hidden"}`}
-    >
+    <form className={`${formType === "register" ? "fadeInForm" : "hidden"}`}>
       <FormLabel>Nome</FormLabel>
       <Input type="text" />
       <FormLabel className="mt-2">Email</FormLabel>
@@ -32,6 +30,6 @@ export function RegisterForm({
           Fazer Login
         </a>
       </p>
-    </FormControl>
+    </form>
   );
 }

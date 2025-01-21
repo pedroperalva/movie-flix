@@ -7,8 +7,8 @@ export default async function Home() {
   const series = await getSeries();
 
   return (
-    <main className="p-24 flex flex-col items-center">
-      <section className="flex flex-col justify-around w-[860px] bg-black-bg bg-cover bg-no-repeat h-[500px] rounded-xl p-14 mb-10">
+    <main className="p-6 md:p-24 flex flex-col items-center">
+      <section className="flex flex-col justify-around w-full md:w-[700px] xl:w-[1200px] bg-black-bg bg-cover bg-no-repeat h-[500px] rounded-xl p-6 md:p-14 mb-10">
         <div>
           <MainLogo textSize="text-4xl" />
           <h2 className="text-3xl font-bold text-white">
@@ -17,7 +17,7 @@ export default async function Home() {
         </div>
         <SearchInputTab />
       </section>
-      <section className="flex flex-col w-[860px] justify-center gap-[50px]">
+      <section className="flex flex-col max-w-[1280px] justify-center gap-[50px]">
         <h3 className="text-2xl font-bold text-white">Filmes</h3>
         {movies && <MovieCarousel movies={movies.results}></MovieCarousel>}
         <h3 className="text-2xl font-bold text-white">Séries</h3>
