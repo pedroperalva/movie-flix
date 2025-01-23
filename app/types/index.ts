@@ -15,6 +15,15 @@ export interface Movies {
   vote_count: number;
 }
 
+export interface MovieDetails {
+  poster_path: string;
+  title: string;
+  titleId: string;
+  type: string;
+  userId: string;
+  vote_average: number;
+}
+
 export interface Movie extends Movies {
   belongs_to_collection: {
     id: number;

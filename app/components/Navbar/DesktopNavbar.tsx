@@ -11,7 +11,7 @@ import { DrawerProfile } from "./DrawerProfile";
 export function DesktopNavbar() {
   const formDisclosure = useDisclosure();
   const profileDisclosure = useDisclosure();
-  const { userToken } = useContext(context);
+  const { userToken, user } = useContext(context);
 
   return (
     <nav className="h-16 w-full bg-black flex items-center px-3 justify-between">
@@ -19,7 +19,16 @@ export function DesktopNavbar() {
         <MainLogo textSize="text-xl" />
       </Link>
       {userToken ? (
-        <Avatar size={"md"} onClick={() => profileDisclosure.onOpen()} />
+        <div className="flex items-center gap-4">
+          <p className="text-white text-sm">
+            Seja bem vindo(a), {user?.name.split(" ")[0]}
+          </p>
+          <Avatar
+            size={"sm"}
+            cursor={"pointer"}
+            onClick={() => profileDisclosure.onOpen()}
+          />
+        </div>
       ) : (
         <Button
           className="cursor-pointer"

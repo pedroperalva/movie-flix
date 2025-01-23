@@ -39,7 +39,7 @@ export function CastCarousel({ cast }: { cast: any }) {
         paddingBottom: 15,
       }}
     >
-      {cast.slice(0, 15).map((item: any, index: number) => {
+      {cast?.slice(0, 15).map((item: any, index: number) => {
         return item.profile_path ? (
           <SwiperSlide>
             <ProfileCard

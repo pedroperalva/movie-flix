@@ -1,4 +1,5 @@
 import axios from "axios";
+import { logout } from "./logout";
 
 export const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -12,7 +13,6 @@ export const api2 = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL_2,
   headers: {
     accept: "application/json",
-    Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
   },
 });
 
@@ -31,7 +31,7 @@ api2.interceptors.request.use(
   (error) => {
     if (error.response?.status === 401) {
       console.error("Unauthorized! Token might be expired or invalid.");
-      localStorage.removeItem("token");
+      logout();
       window.location.href = "/";
     }
     return Promise.reject(error);

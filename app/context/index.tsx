@@ -7,7 +7,9 @@ export function UserContext({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const existingToken = localStorage.getItem("token");
+    const existingUser = localStorage.getItem("userData");
     setUserToken(existingToken || null);
+    setUser(existingUser ? JSON.parse(existingUser) : null);
   }, []);
 
   return (

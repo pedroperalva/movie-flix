@@ -7,6 +7,7 @@ import { Scrollbar } from "swiper/modules";
 import "swiper/css/scrollbar";
 
 export function MovieCarousel({ movies }: { movies: Movies[] }) {
+  console.log(movies);
   return (
     <Swiper
       scrollbar
