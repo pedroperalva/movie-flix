@@ -14,11 +14,9 @@ export default function Favorites() {
       const response = await api2.get(`/favorites/${user?.id}`);
       setFavorites([...response.data]);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
-
-  console.log(favorites);
 
   useEffect(() => {
     getFavorites();

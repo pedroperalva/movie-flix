@@ -7,12 +7,11 @@ import { Scrollbar } from "swiper/modules";
 import "swiper/css/scrollbar";
 
 export function MovieCarousel({ movies }: { movies: Movies[] }) {
-  console.log(movies);
   return (
     <Swiper
       scrollbar
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log("slide change")}
+      // onSwiper={(swiper) => console.log(swiper)}
       modules={[Scrollbar]}
       style={{
         paddingBottom: 15,

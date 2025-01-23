@@ -16,14 +16,13 @@ export function SearchInput({
     <InputGroup>
       <Input
         value={value}
-        bg="white"
         color="black"
         placeholder={placeholder}
         onChange={(e) => setValue(e.target.value)}
       />
       <InputRightElement width="5rem">
         <Button
-          bgColor={"red.600"}
+          bgColor={"primary"}
           h={"2.2rem"}
           mr={"0.2rem"}
           textColor={"white"}

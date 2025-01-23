@@ -51,7 +51,7 @@ export function Trailer({ id }: { id: string }) {
                   thickness="4px"
                   speed="0.65s"
                   emptyColor="gray.200"
-                  color="red.500"
+                  color="primary"
                   size="xl"
                 />
               </div>

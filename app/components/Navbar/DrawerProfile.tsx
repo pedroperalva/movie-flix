@@ -34,25 +34,25 @@ export function DrawerProfile({
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
       <DrawerOverlay />
-      <DrawerContent>
+      <DrawerContent bgColor={"#000"} textColor={"#fff"}>
         <DrawerCloseButton />
         <DrawerHeader>Perfil</DrawerHeader>
-        <DrawerBody className="flex flex-col items-center justify-between">
+        <DrawerBody className="flex flex-col items-center justify-between text-white">
           <div className="w-full flex flex-col items-center gap-3">
             <Avatar size={"2xl"} />
             <div className="w-full">
               <FormLabel>Email</FormLabel>
-              <Input value={user?.email} isDisabled />
+              <Input value={user?.email} isDisabled mb={"15px"} />
               <FormLabel>Nome</FormLabel>
-              <Input value={user?.name} isDisabled />
+              <Input value={user?.name} isDisabled mb={"15px"} />
               <Link href="/favorites">
-                <Button>Favorites</Button>
+                <Button>Meus Favoritos</Button>
               </Link>
             </div>
           </div>
           <Button
             className="self-end"
-            bgColor={"red.600"}
+            bgColor={"primary"}
             textColor={"white"}
             onClick={() => {
               logoutUser();

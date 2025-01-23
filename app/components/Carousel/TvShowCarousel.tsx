@@ -10,8 +10,8 @@ export function TvShowCarousel({ tvShows }: { tvShows: TVShows[] }) {
   return (
     <Swiper
       scrollbar
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log("slide change")}
+      // onSwiper={(swiper) => console.log(swiper)}
       modules={[Scrollbar]}
       style={{
         paddingBottom: 15,

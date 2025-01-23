@@ -21,7 +21,8 @@ export function DesktopNavbar() {
       {userToken ? (
         <div className="flex items-center gap-4">
           <p className="text-white text-sm">
-            Seja bem vindo(a), {user?.name.split(" ")[0]}
+            Seja bem vindo(a),{" "}
+            {user?.name.includes(" ") ? user?.name.split(" ")[0] : user?.name}
           </p>
           <Avatar
             size={"sm"}
@@ -32,7 +33,7 @@ export function DesktopNavbar() {
       ) : (
         <Button
           className="cursor-pointer"
-          bgColor={"red.600"}
+          bgColor={"primary"}
           textColor={"white"}
           onClick={() => formDisclosure.onOpen()}
         >

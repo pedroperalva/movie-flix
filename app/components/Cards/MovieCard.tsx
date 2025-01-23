@@ -24,8 +24,9 @@ export function MovieCard({
   const router = useRouter();
   return (
     <Card
-      className="w-40 h-[325px] cursor-pointer"
+      className="w-40 h-[300px] cursor-pointer"
       rounded={"xl"}
+      _hover={{ transform: "scale(1.01)" }}
       onClick={() =>
         type === "movie"
           ? router.push(`/movie/${id}`)
@@ -42,17 +43,17 @@ export function MovieCard({
         <Image
           src={`https://image.tmdb.org/t/p/original/${poster}`}
           alt="poster"
-          className="w-40 rounded-t-xl h-[240px]"
+          className="w-40 rounded-t-xl h-[215px]"
         />
         <h2 className="font-bold text-sm !text-white mt-4 px-2 text-center max-length-title">
           {title}
         </h2>
-        <div className="absolute top-[220px] right-2 bg-black rounded-[50%]">
+        <div className="absolute top-[190px] right-2 bg-black rounded-[50%]">
           <CircularProgress
             value={rating}
             max={10}
             color={`${
-              rating > 7 ? "green.400" : rating < 5 ? "red.400" : "yellow.400"
+              rating > 7 ? "green.400" : rating < 5 ? "primary" : "yellow.400"
             }`}
             capIsRound
             size={9}

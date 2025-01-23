@@ -22,7 +22,7 @@ export default function Search() {
       );
       setData(response.data.results);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setLoading(false);
     }
@@ -35,25 +35,33 @@ export default function Search() {
   console.log(data);
 
   return (
-    <div className="w-full flex flex-wrap h-full gap-5 p-5">
-      {loading ? (
-        <></>
-      ) : (
-        data &&
-        data.map((item: Movies) => {
-          return item.poster_path ? (
-            <MovieCard
-              poster={item.poster_path}
-              id={item.id}
-              title={item.title}
-              rating={item.vote_average}
-              type={type ? type : ""}
-            />
-          ) : (
-            <></>
-          );
-        })
-      )}
+    <div className="w-full p-24">
+      <div className="flex w-full justify-between">
+        <h3 className="text-white text-2xl font-bold mb-6">
+          Buscas por: {query}
+        </h3>
+        <h3 className="text-white text-2xl font-bold mb-6">Voltar ao início</h3>
+      </div>
+      <div className="w-full flex flex-wrap h-full gap-5">
+        {loading ? (
+          <></>
+        ) : (
+          data &&
+          data.map((item: Movies) => {
+            return item.poster_path ? (
+              <MovieCard
+                poster={item.poster_path}
+                id={item.id}
+                title={item.title}
+                rating={item.vote_average}
+                type={type ? type : ""}
+              />
+            ) : (
+              <></>
+            );
+          })
+        )}
+      </div>
     </div>
   );
 }

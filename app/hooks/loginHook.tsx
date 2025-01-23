@@ -29,6 +29,8 @@ const useLogin = () => {
           id: response.data.id,
         })
       );
+
+      return response.data.name;
     } catch (err: any) {
       setError(err.response?.data?.message || "Login failed");
     } finally {

@@ -33,7 +33,7 @@ export default function Title({ params }: { params: { title_id: string } }) {
       );
       setCredits(response.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -98,7 +98,7 @@ export default function Title({ params }: { params: { title_id: string } }) {
                   data?.vote_average > 7
                     ? "green.400"
                     : data?.vote_average < 5
-                    ? "red.400"
+                    ? "primary"
                     : "yellow.400"
                 }`}
                 size={16}

@@ -1,5 +1,7 @@
+"use client";
+
 import useLogin from "@/app/hooks/loginHook";
-import { Input, Button, FormLabel, Spinner } from "@chakra-ui/react";
+import { Input, Button, FormLabel, Spinner, useToast } from "@chakra-ui/react";
 import { Dispatch, SetStateAction } from "react";
 
 export function LoginForm({
@@ -12,12 +14,21 @@ export function LoginForm({
   onClose: () => void;
 }) {
   const { login, loading, error } = useLogin();
-
+  const toast = useToast();
   const submitLogin = (e: any) => {
     e.preventDefault();
     login(e.target[0].value, e.target[1].value)
-      .then(() => {
-        console.log("oi");
+      .then((e) => {
+        console.log(e);
+        toast({
+          description: `Seja bem vindo(a), ${
+            e.name.includes(" ") ? e.split(" ")[0] : e.name
+          }!`,
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
         onClose();
       })
       .catch((error: any) => console.log(error));
@@ -40,7 +51,7 @@ export function LoginForm({
       </p>
       <Button
         className="w-full mt-6"
-        bgColor={"red.600"}
+        bgColor={"primary"}
         textColor={"white"}
         type="submit"
       >

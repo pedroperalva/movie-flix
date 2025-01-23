@@ -23,7 +23,7 @@ export function DrawerMenu({
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
       <DrawerOverlay />
-      <DrawerContent>
+      <DrawerContent bgColor={"#000"} textColor={"#fff"}>
         <DrawerCloseButton />
         <DrawerHeader>
           {formType === "login"
@@ -32,7 +32,7 @@ export function DrawerMenu({
             ? "Registrar"
             : "Recuperar Senha"}
         </DrawerHeader>
-        <DrawerBody>
+        <DrawerBody textColor={"#fff"}>
           <LoginForm
             formType={formType}
             setFormType={setFormType}

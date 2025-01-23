@@ -1,5 +1,9 @@
+"use client";
+
 import axios from "axios";
 import { logout } from "./logout";
+import { useContext } from "react";
+import { context } from "../context";
 
 export const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -16,24 +20,26 @@ export const api2 = axios.create({
   },
 });
 
-api2.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem("token");
+api2.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers["Authorization"] = `Bearer ${token}`;
+  } else {
+    console.warn("No token found. Request may fail.");
+  }
+  return config;
+});
 
-    if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`;
-    } else {
-      console.warn("No token found. Request may fail.");
-    }
-
-    return config;
+api2.interceptors.response.use(
+  (response): any => {
+    return response;
   },
   (error) => {
     if (error.response?.status === 401) {
       console.error("Unauthorized! Token might be expired or invalid.");
       logout();
-      window.location.href = "/";
+    } else if (error.response?.status === 400) {
+      throw new Error("Email já está sendo utilizado.");
     }
-    return Promise.reject(error);
   }
 );

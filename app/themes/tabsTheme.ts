@@ -7,10 +7,9 @@ const { defineMultiStyleConfig, definePartsStyle } =
 const baseStyle = definePartsStyle({
   tab: {
     _selected: {
-      borderColor: "red.500",
+      borderColor: "primary",
     },
   },
 });
 
-// export the component theme
 export const tabsTheme = defineMultiStyleConfig({ baseStyle });
