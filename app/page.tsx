@@ -5,7 +5,7 @@ import { MainLogo } from "./components/Logos";
 export default async function Home() {
   const movies = await getMovies();
   const series = await getSeries();
-
+  console.log(movies, series);
   return (
     <main className="p-6 md:p-24 flex flex-col items-center">
       <section className="flex flex-col justify-around w-full md:w-[700px] xl:w-[1200px] bg-black-bg bg-cover bg-no-repeat h-[500px] rounded-xl p-6 md:p-14 mb-10">

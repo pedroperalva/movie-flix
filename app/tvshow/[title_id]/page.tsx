@@ -54,7 +54,7 @@ export default function Title({ params }: { params: { title_id: string } }) {
   };
 
   return (
-    <main className="w-full relative h-full">
+    <main className="w-full relative min-h-screen">
       <div
         className="h-full w-full bg-center absolute top-0"
         style={{

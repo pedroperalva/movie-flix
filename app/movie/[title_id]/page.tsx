@@ -61,7 +61,7 @@ export default function Title({ params }: { params: { title_id: string } }) {
           backgroundImage: `url("https://image.tmdb.org/t/p/original/${data?.backdrop_path}")`,
         }}
       ></div>
-      <div className="h-full w-full !bg-black !bg-opacity-70 relative pb-20">
+      <div className="min-h-screen w-full !bg-black !bg-opacity-70 relative pb-20">
         <div className="z-20 relative flex w-full h-[600px] px-10 pt-10">
           <Image
             src={`https://image.tmdb.org/t/p/original/${data?.poster_path}`}
@@ -112,16 +112,16 @@ export default function Title({ params }: { params: { title_id: string } }) {
                 </CircularProgressLabel>
               </CircularProgress> */}
             </div>
-            <div className="flex items-center gap-3 mt-4 ">
+            <div className="flex items-center gap-3 my-4">
               {data?.production_companies.map((company: any, index: number) => {
                 return company.logo_path ? (
-                  <>
+                  <div className="bg-opacity-78 bg-white p-2 rounded-xl">
                     <Image
                       src={`https://image.tmdb.org/t/p/original/${company.logo_path}`}
                       alt="poster"
-                      className="w-16"
+                      className="w-14"
                     />
-                  </>
+                  </div>
                 ) : (
                   <></>
                 );
